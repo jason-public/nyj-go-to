@@ -1,0 +1,235 @@
+.place-card {
+  background-color: var(--surface-white);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+.place-card:hover {
+  border-color: var(--primary-soft);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.place-card.selected {
+  border-color: var(--accent-orange);
+  background-color: #FFFDF9;
+  box-shadow: 0 0 0 3px rgba(231, 111, 81, 0.15), var(--shadow-card);
+}
+
+.place-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.place-name {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: var(--primary-deep-green);
+  line-height: 1.3;
+}
+
+.distance-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background-color: var(--primary-light);
+  color: var(--primary-forest);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+
+.card-badges {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.place-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.place-card-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.address-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--text-muted);
+}
+
+.place-card-note {
+  background-color: var(--bg-ivory-soft);
+  border-left: 3px solid var(--accent-orange);
+  padding: 8px 12px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.8rem;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+.note-quote {
+  color: var(--accent-orange);
+  font-weight: 800;
+  margin: 0 2px;
+}
+
+.place-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.card-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: var(--radius-md);
+  font-size: 0.76rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.card-action-btn.primary {
+  background-color: var(--primary-light);
+  color: var(--primary-deep-green);
+  border: 1px solid rgba(27, 67, 50, 0.2);
+}
+
+.card-action-btn.primary:hover:not(:disabled) {
+  background-color: var(--primary-deep-green);
+  color: var(--surface-white);
+}
+
+.card-action-btn.primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--bg-ivory-warm);
+  color: var(--text-muted);
+}
+
+.card-fav-btn {
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.card-fav-btn:hover {
+  background-color: var(--accent-orange-light);
+  color: var(--accent-orange);
+}
+
+.card-fav-btn.active {
+  color: var(--accent-orange);
+}
+
+.card-action-btn.kakao {
+  background-color: #FEE500;
+  color: #191919;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.card-action-btn.kakao:hover {
+  background-color: #FADA0A;
+}
+
+.kakao-icon-k {
+  font-weight: 900;
+  font-size: 0.72rem;
+  background-color: #191919;
+  color: #FEE500;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-action-btn.naver {
+  background-color: #E8F8F0;
+  color: #03C75A;
+  border: 1px solid rgba(3, 199, 90, 0.25);
+}
+
+.card-action-btn.naver:hover {
+  background-color: #03C75A;
+  color: #FFFFFF;
+}
+
+.naver-icon-n {
+  font-weight: 900;
+  font-size: 0.72rem;
+  background-color: #03C75A;
+  color: #FFFFFF;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-action-btn.naver:hover .naver-icon-n {
+  background-color: #FFFFFF;
+  color: #03C75A;
+}
+
+.card-action-btn.copy {
+  background-color: var(--bg-ivory);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  flex: 0 0 auto;
+}
+
+.card-action-btn.copy:hover {
+  background-color: var(--bg-ivory-warm);
+}
+
+.card-action-btn.copy.copied {
+  background-color: #D1FAE5;
+  color: #065F46;
+  border-color: #A7F3D0;
+}

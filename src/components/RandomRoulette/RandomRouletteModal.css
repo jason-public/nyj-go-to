@@ -1,0 +1,509 @@
+.roulette-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(27, 67, 50, 0.48);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: fadeIn 0.2s ease;
+}
+
+.roulette-modal-card {
+  background-color: var(--surface-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-floating);
+  border: 2px solid var(--border-color);
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.roulette-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, var(--primary-deep-green), var(--primary-forest));
+  color: var(--surface-white);
+  flex-shrink: 0;
+}
+
+.roulette-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.roulette-title-group h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.roulette-icon {
+  color: var(--accent-orange-warm);
+}
+
+.roulette-close-btn {
+  color: rgba(255, 255, 255, 0.85);
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.roulette-close-btn:hover {
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* 상단 설정 컨트롤 패널 */
+.roulette-controls-panel {
+  padding: 14px 20px;
+  background-color: #F7F5EE;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.roulette-control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.control-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary-deep-green);
+  flex-shrink: 0;
+}
+
+.control-label-icon {
+  color: var(--accent-orange);
+}
+
+.select-wrapper {
+  flex: 1;
+  max-width: 280px;
+}
+
+.roulette-region-select {
+  width: 100%;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid #D5CEBF;
+  background-color: var(--surface-white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.roulette-region-select:focus {
+  border-color: var(--primary-deep-green);
+  box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.12);
+}
+
+/* 점심 / 저녁 / 전체 세그먼트 탭 */
+.roulette-meal-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #EBE7DC;
+  padding: 3px;
+  border-radius: var(--radius-md);
+  flex: 1;
+  max-width: 280px;
+}
+
+.meal-tab-btn {
+  flex: 1;
+  height: 32px;
+  border: none;
+  border-radius: calc(var(--radius-md) - 2px);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.meal-tab-btn:hover:not(.active):not(:disabled) {
+  color: var(--primary-deep-green);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.meal-tab-btn.active {
+  background-color: var(--surface-white);
+  color: var(--primary-deep-green);
+  box-shadow: var(--shadow-sm);
+}
+
+.meal-icon-sun {
+  color: #E76F51;
+}
+
+.meal-icon-moon {
+  color: #4A5568;
+}
+
+.meal-tab-btn.active .meal-icon-sun {
+  color: #D9480F;
+}
+
+.meal-tab-btn.active .meal-icon-moon {
+  color: #3182CE;
+}
+
+/* 요약 배지 */
+.roulette-filter-summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  padding-top: 4px;
+  border-top: 1px dashed rgba(213, 206, 191, 0.6);
+}
+
+.summary-region-chip {
+  background-color: var(--surface-white);
+  color: var(--primary-deep-green);
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-color);
+}
+
+.summary-dot {
+  color: var(--border-color);
+}
+
+.summary-meal-chip {
+  font-weight: 700;
+  color: var(--accent-orange);
+}
+
+.summary-count {
+  margin-left: auto;
+  font-size: 0.76rem;
+}
+
+.summary-count strong {
+  color: var(--primary-deep-green);
+  font-size: 0.84rem;
+}
+
+.summary-fallback-notice {
+  width: 100%;
+  color: #B45309;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* 룰렛 디스플레이 영역 */
+.roulette-display-area {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-ivory);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.roulette-result-box {
+  width: 100%;
+  background-color: var(--surface-white);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.roulette-result-box.rolling {
+  border-color: var(--accent-orange-warm);
+  transform: scale(0.98);
+  opacity: 0.85;
+}
+
+.roulette-result-box.winner {
+  border-color: var(--accent-orange);
+  background-color: #FFFDF8;
+  box-shadow: 0 0 0 4px rgba(231, 111, 81, 0.15), var(--shadow-card);
+  animation: pulseWinner 0.4s ease;
+}
+
+@keyframes pulseWinner {
+  0% { transform: scale(0.96); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.roulette-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.roulette-region-badge {
+  background-color: var(--bg-ivory-soft);
+  color: var(--primary-deep-green);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-color);
+}
+
+.meal-recommend-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.meal-recommend-badge.lunch {
+  background-color: #FFF3BF;
+  color: #D9480F;
+  border: 1px solid #FFE066;
+}
+
+.meal-recommend-badge.dinner {
+  background-color: #EBF8FF;
+  color: #2B6CB0;
+  border: 1px solid #BEE3F8;
+}
+
+.meal-recommend-badge.all {
+  background-color: #F0FFF4;
+  color: #276749;
+  border: 1px solid #C6F6D5;
+}
+
+.roulette-place-name {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: var(--primary-deep-green);
+  line-height: 1.3;
+}
+
+.roulette-category-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.roulette-food-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+.roulette-food-tag {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--primary-deep-green);
+  background-color: var(--bg-ivory);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.roulette-note {
+  font-size: 0.88rem;
+  color: var(--accent-orange);
+  background-color: var(--accent-orange-light);
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  max-width: 95%;
+  line-height: 1.4;
+}
+
+.roulette-address {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.winner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #FEF3C7;
+  color: #B45309;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin-top: 4px;
+}
+
+/* 모달 하단 푸터 */
+.roulette-modal-footer {
+  padding: 16px 20px;
+  background-color: var(--surface-white);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.roulette-rerun-btn {
+  width: 100%;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #FFF8ED, #FFEEC8);
+  color: #B45309;
+  font-weight: 800;
+  font-size: 0.92rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1.5px solid #FCD34D;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.roulette-rerun-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #FFEEC8, #FDE68A);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.2);
+}
+
+.spinning {
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.roulette-action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.roulette-view-map-btn {
+  width: 100%;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background-color: var(--primary-deep-green);
+  color: var(--surface-white);
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.roulette-view-map-btn:hover {
+  background-color: var(--primary-forest);
+}
+
+.roulette-links-subgroup {
+  display: flex;
+  gap: 8px;
+}
+
+.roulette-naver-link {
+  flex: 1;
+  height: 36px;
+  background-color: #E8F8F0;
+  color: #03C75A;
+  border: 1px solid rgba(3, 199, 90, 0.3);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.roulette-naver-link:hover {
+  background-color: #D3F4E2;
+}
+
+.roulette-kakao-link {
+  flex: 1;
+  height: 36px;
+  background-color: #FEE500;
+  color: #191919;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.roulette-kakao-link:hover {
+  background-color: #FADA0A;
+}
+

@@ -1,0 +1,178 @@
+.map-controls-container {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.map-type-toggle-group {
+  pointer-events: auto;
+  display: flex;
+  background-color: var(--surface-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  width: fit-content;
+}
+
+.map-type-btn {
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background-color: var(--surface-white);
+  transition: all var(--transition-fast);
+}
+
+.map-type-btn.active {
+  background-color: var(--primary-deep-green);
+  color: var(--surface-white);
+}
+
+.map-control-btn-group {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  pointer-events: auto;
+  width: 38px;
+}
+
+.map-control-btn {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  background-color: var(--surface-white);
+}
+
+.map-control-btn:hover {
+  background-color: var(--bg-ivory);
+  color: var(--primary-deep-green);
+}
+
+.map-control-btn.active {
+  background-color: var(--primary-deep-green);
+  color: var(--surface-white);
+}
+
+.map-control-btn.highlight {
+  background-color: var(--accent-orange-light);
+  color: var(--accent-orange);
+}
+
+.btn-badge-text {
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.btn-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  width: 100%;
+}
+
+.center-address-banner {
+  pointer-events: auto;
+  background-color: rgba(27, 67, 50, 0.9);
+  color: var(--surface-white);
+  backdrop-filter: blur(4px);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.76rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--shadow-card);
+  max-width: 300px;
+}
+
+.center-address-banner .center-icon {
+  color: var(--accent-orange-warm);
+}
+
+.map-legend-card {
+  pointer-events: auto;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  width: 220px;
+  font-size: 0.76rem;
+  overflow: hidden;
+}
+
+.legend-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background-color: var(--bg-ivory);
+  color: var(--primary-deep-green);
+  font-weight: 700;
+}
+
+.legend-title-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-body {
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+}
+
+.legend-marker {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid #fff;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+
+.marker-restaurant {
+  background-color: #1B4332;
+}
+
+.marker-cafe {
+  background-color: #B07D62;
+}
+
+.marker-other {
+  background-color: #0077B6;
+}
+
+.legend-boundary-line {
+  width: 16px;
+  height: 3px;
+  background-color: #2D6A4F;
+  border-radius: 2px;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}

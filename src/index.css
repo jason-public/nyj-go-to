@@ -1,0 +1,176 @@
+/* ==========================================================================
+   남양주 맛집지도 - 디자인 시스템 & 전역 스타일
+   배경: 밝은 아이보리 (#FDFBF7, #F6F3EB)
+   중심색: 짙은 숲속 녹색 (#1B4332, #2D6A4F)
+   강조색: 따뜻한 주황색 (#E76F51, #F4A261)
+   ========================================================================== */
+
+:root {
+  /* 색상 팔레트 */
+  --bg-ivory: #FDFBF7;
+  --bg-ivory-soft: #F6F3EB;
+  --bg-ivory-warm: #EFECE3;
+  --surface-white: #FFFFFF;
+  
+  --primary-deep-green: #1B4332;
+  --primary-forest: #2D6A4F;
+  --primary-soft: #40916C;
+  --primary-light: #E8F5E9;
+  --primary-hover: #133024;
+
+  --accent-orange: #E76F51;
+  --accent-orange-warm: #F4A261;
+  --accent-orange-light: #FFF0EB;
+  --accent-orange-hover: #D8593A;
+
+  /* 업종별 컬러 */
+  --cat-restaurant: #1B4332;
+  --cat-restaurant-bg: #E8F5E9;
+  --cat-cafe: #B07D62;
+  --cat-cafe-bg: #F8F1EB;
+  --cat-other: #0077B6;
+  --cat-other-bg: #E3F2FD;
+
+  /* 텍스트 & 경계선 */
+  --text-main: #1C2321;
+  --text-secondary: #4A5568;
+  --text-muted: #718096;
+  --text-light: #A0AEC0;
+  --border-color: #E6E2D8;
+  --border-focus: #1B4332;
+
+  /* 그림자 & 둥글기 */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 9999px;
+
+  --shadow-subtle: 0 2px 8px rgba(27, 67, 50, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-card: 0 4px 16px rgba(27, 67, 50, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 8px 24px rgba(27, 67, 50, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-floating: 0 12px 32px rgba(27, 67, 50, 0.16);
+
+  /* 레이아웃 & 전환 */
+  --header-height: 72px;
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 기본 리셋 */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', Roboto, sans-serif;
+  background-color: var(--bg-ivory);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden; /* 데스크톱 기본: 전체 스크롤 방지, 내부 독립 스크롤 */
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 스크롤바 커스터마이징 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-ivory-soft);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* 폼 요소 기본 스타일링 */
+button, input, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* 공통 배지 스타일 */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.badge-region {
+  background-color: var(--bg-ivory-soft);
+  color: var(--primary-deep-green);
+  border: 1px solid var(--border-color);
+}
+
+.badge-restaurant {
+  background-color: var(--cat-restaurant-bg);
+  color: var(--cat-restaurant);
+}
+
+.badge-cafe {
+  background-color: var(--cat-cafe-bg);
+  color: var(--cat-cafe);
+}
+
+.badge-other {
+  background-color: var(--cat-other-bg);
+  color: var(--cat-other);
+}
+
+.badge-tag {
+  background-color: var(--surface-white);
+  color: var(--text-secondary);
+  border: 1px solid #E2E8F0;
+  font-weight: 500;
+}
+
+.badge-warning {
+  background-color: #FEF3C7;
+  color: #92400E;
+}
+
+/* 키보드 포커스 링 */
+*:focus-visible {
+  outline: 2px solid var(--accent-orange);
+  outline-offset: 2px;
+}
+
+/* 모션 감소 접근성 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

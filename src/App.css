@@ -1,0 +1,143 @@
+.app-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--bg-ivory);
+}
+
+.mobile-view-tabs {
+  display: none;
+  background-color: var(--surface-white);
+  border-bottom: 1px solid var(--border-color);
+  padding: 6px 12px;
+  gap: 8px;
+  z-index: 20;
+}
+
+.mobile-tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background-color: var(--bg-ivory);
+  transition: all var(--transition-fast);
+}
+
+.mobile-tab-btn.active {
+  background-color: var(--primary-deep-green);
+  color: var(--surface-white);
+}
+
+.app-main-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 데스크톱: 왼쪽 55% 지도, 오른쪽 45% 목록 */
+.main-map-section {
+  flex: 0 0 55%;
+  height: 100%;
+  position: relative;
+  border-right: 1px solid var(--border-color);
+}
+
+.main-list-section {
+  flex: 0 0 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-ivory);
+  overflow: hidden;
+}
+
+/* 태블릿 및 화면 축소 시 비율 유연 조정 */
+@media (max-width: 1200px) {
+  .main-map-section {
+    flex: 0 0 50%;
+  }
+  .main-list-section {
+    flex: 0 0 50%;
+  }
+}
+
+/* 모바일 (768px 이하): 탭 전환 레이아웃 */
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+
+  .mobile-view-tabs {
+    display: flex;
+  }
+
+  .app-main-content {
+    flex-direction: column;
+  }
+
+  .main-map-section {
+    flex: 1;
+    width: 100%;
+    border-right: none;
+  }
+
+  .main-list-section {
+    flex: 1;
+    width: 100%;
+  }
+
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  .mobile-visible {
+    display: flex !important;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* 글로벌 복사 알림 토스트 */
+.global-toast-notification {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-deep-green);
+  color: var(--surface-white);
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-floating);
+  z-index: 2000;
+  animation: slideUpFade 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-check-icon {
+  color: #4ADE80;
+  flex-shrink: 0;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
